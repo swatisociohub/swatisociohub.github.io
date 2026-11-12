@@ -389,24 +389,6 @@ p { margin: 0; }
 .g4 { background: conic-gradient(from 140deg at 50% 40%, var(--pink), var(--lilac), var(--pink)); }
 .g6 { background: radial-gradient(circle at 60% 25%, var(--lilac), transparent 50%), radial-gradient(circle at 30% 80%, var(--pink), transparent 50%), #15131e; }
 
-/* ---------- 5b. Logo design ---------- */
-.sticker-lilac { background: var(--lilac); transform: rotate(-3deg); }
-.logos { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
-.logo-card {
-  padding: 14px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--border);
-  transition: transform .5s var(--spring), border-color .3s;
-}
-.logo-card:hover { transform: translateY(-6px) rotate(-1.5deg); border-color: var(--lilac); }
-.logo-card:nth-child(even):hover { transform: translateY(-6px) rotate(1.5deg); }
-.logo-art {
-  display: grid; place-items: center; aspect-ratio: 1; padding: 14%;
-  border-radius: var(--radius-sm); background: var(--white);
-}
-.logo-art img { width: 100%; height: 100%; object-fit: contain; }
-.logo-card p { display: grid; gap: 2px; padding: 14px 6px 4px; }
-.logo-card b { font-family: var(--font-head); font-size: 1.1rem; letter-spacing: -0.02em; }
-.logo-card span { color: var(--muted); font-size: .85rem; }
-
 /* ---------- 6. Services (light) ---------- */
 .light {
   background: var(--paper); color: var(--ink);
@@ -431,12 +413,15 @@ p { margin: 0; }
 }
 .tile-ic .ic { width: 24px; height: 24px; }
 .t-big { grid-row: span 2; }
+/* bottom row: influencer, SEO and logo tiles share the width */
+.t-white, .t-lime { grid-column: span 2; }
 .t-big h3 { font-size: clamp(1.8rem, 3.2vw, 2.7rem); }
 .t-dark { background: var(--ink); color: var(--text); }
 .t-dark p { color: var(--muted); }
 .t-dark .tile-ic { background: var(--lime); color: var(--ink); }
 .t-pink { background: var(--pink); }
 .t-lilac { background: var(--lilac); }
+.t-lime { background: var(--lime); }
 .t-white { background: var(--white); border: 1px solid #E2DEEA; }
 .t-white p { color: var(--paper-muted); }
 .t-white .tile-ic { background: var(--lilac); color: var(--ink); }
@@ -601,7 +586,7 @@ p { margin: 0; }
   .creator-grid { grid-template-columns: 1fr; }
   .bento { grid-template-columns: 1fr 1fr; }
   .tile { grid-column: span 1; }
-  .t-big { grid-column: span 2; grid-row: auto; }
+  .t-big, .t-lime { grid-column: span 2; grid-row: auto; }
 }
 
 @media (max-width: 720px) {
