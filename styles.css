@@ -350,14 +350,25 @@ p { margin: 0; }
 
 /* ---------- 5. Reels ---------- */
 .reels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.reels { align-items: start; }
 .reel {
   position: relative; aspect-ratio: 9 / 16; border-radius: 24px; overflow: hidden;
-  padding: 14px; display: flex; flex-direction: column; justify-content: space-between;
   border: 1px solid var(--border);
   transition: transform .5s var(--spring);
 }
+.reel-link {
+  position: absolute; inset: 0; z-index: 1; padding: 14px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  color: var(--text); text-decoration: none; cursor: pointer;
+}
+.reel-link:focus-visible { outline-offset: -4px; border-radius: 24px; }
+/* playing: the tile grows to fit Instagram's player (header + video + footer) */
+.reel.playing { aspect-ratio: auto; background: var(--white); }
+.reel.playing::after { display: none; }
+.reel.playing:hover { transform: none; }
+.reel iframe { display: block; width: 100%; border: 0; background: var(--white); }
 .reel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-.reel > :not(img) { position: relative; z-index: 1; }
+.reel-link > :not(img) { position: relative; z-index: 1; }
 .reel::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgb(10 10 15 / .75), transparent 45%); }
 .reel p { font-weight: 700; font-size: .95rem; line-height: 1.2; z-index: 2; }
 .reel .tag { align-self: flex-start; z-index: 2; }

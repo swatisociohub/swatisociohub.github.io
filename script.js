@@ -31,6 +31,34 @@
     items.forEach(el => io.observe(el));
   }
 
+  // Recent drops: swap a tile for Instagram's player only when it's tapped,
+  // so nothing loads from Instagram until a visitor asks for it
+  const sizeEmbed = frame => {
+    // Instagram's embed = header + 4:5 video + likes/comment footer
+    frame.style.height = `${Math.round(frame.offsetWidth * 1.25 + 220)}px`;
+  };
+
+  document.querySelectorAll('.reel[data-reel] .reel-link').forEach(link => {
+    link.addEventListener('click', e => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // let "open in new tab" through
+      e.preventDefault();
+      const tile = link.closest('.reel');
+      const frame = document.createElement('iframe');
+      frame.src = `https://www.instagram.com/reel/${tile.dataset.reel}/embed/`;
+      frame.title = link.getAttribute('aria-label').replace(/^Play (.*) on Instagram$/, 'Instagram $1');
+      frame.allow = 'autoplay; encrypted-media; picture-in-picture';
+      frame.allowFullscreen = true;
+      tile.classList.add('playing');
+      link.replaceWith(frame);
+      sizeEmbed(frame);
+      frame.focus();
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.reel.playing iframe').forEach(sizeEmbed);
+  }, { passive: true });
+
   // Custom cursor dot: desktop pointers only
   const cursor = document.querySelector('.cursor');
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
