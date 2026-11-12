@@ -129,7 +129,7 @@ p { margin: 0; }
   pointer-events: auto;
   display: flex; align-items: center; gap: 12px;
   width: min(100%, 760px);
-  padding: 6px 6px 6px 22px;
+  padding: 6px 6px 6px 8px;
   border-radius: 999px;
   background: rgb(23 22 31 / .6);
   border: 1px solid rgb(255 255 255 / .08);
@@ -141,7 +141,9 @@ p { margin: 0; }
   font: 800 1.35rem/1 var(--font-head); letter-spacing: -0.04em; text-decoration: none;
   min-height: 44px; display: inline-flex; align-items: center;
 }
-.logo span { color: var(--pink); display: inline-block; margin-left: 2px; animation: spin 8s linear infinite; }
+.logo { gap: 9px; }
+.logo-mark { width: 36px; height: 36px; flex: none; transition: rotate .4s var(--spring); }
+.logo:hover .logo-mark { rotate: -14deg; }
 .nav-links { display: flex; gap: 2px; margin-left: auto; }
 .nav-links a {
   display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px;
@@ -387,6 +389,24 @@ p { margin: 0; }
 .g4 { background: conic-gradient(from 140deg at 50% 40%, var(--pink), var(--lilac), var(--pink)); }
 .g6 { background: radial-gradient(circle at 60% 25%, var(--lilac), transparent 50%), radial-gradient(circle at 30% 80%, var(--pink), transparent 50%), #15131e; }
 
+/* ---------- 5b. Logo design ---------- */
+.sticker-lilac { background: var(--lilac); transform: rotate(-3deg); }
+.logos { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.logo-card {
+  padding: 14px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--border);
+  transition: transform .5s var(--spring), border-color .3s;
+}
+.logo-card:hover { transform: translateY(-6px) rotate(-1.5deg); border-color: var(--lilac); }
+.logo-card:nth-child(even):hover { transform: translateY(-6px) rotate(1.5deg); }
+.logo-art {
+  display: grid; place-items: center; aspect-ratio: 1; padding: 14%;
+  border-radius: var(--radius-sm); background: var(--white);
+}
+.logo-art img { width: 100%; height: 100%; object-fit: contain; }
+.logo-card p { display: grid; gap: 2px; padding: 14px 6px 4px; }
+.logo-card b { font-family: var(--font-head); font-size: 1.1rem; letter-spacing: -0.02em; }
+.logo-card span { color: var(--muted); font-size: .85rem; }
+
 /* ---------- 6. Services (light) ---------- */
 .light {
   background: var(--paper); color: var(--ink);
@@ -504,7 +524,11 @@ p { margin: 0; }
 }
 .socials a:hover { transform: translateY(-4px) rotate(-8deg); border-color: var(--lime); color: var(--lime); }
 .socials .ic { width: 22px; height: 22px; }
-.copy { width: 100%; color: var(--muted); font-size: .88rem; padding-top: 20px; border-top: 1px solid var(--border); }
+.copy {
+  width: 100%; display: flex; align-items: center; gap: 10px;
+  color: var(--muted); font-size: .88rem; padding-top: 20px; border-top: 1px solid var(--border);
+}
+.copy .logo-mark { width: 28px; height: 28px; }
 
 /* ---------- Cursor ---------- */
 .cursor {
@@ -582,7 +606,7 @@ p { margin: 0; }
 
 @media (max-width: 720px) {
   .nav-links { display: none; }
-  .nav { padding-left: 18px; }
+  .nav { padding-left: 8px; }
   .nav-links + .btn { margin-left: auto; }
 }
 

@@ -10,6 +10,7 @@ Plain HTML, CSS and vanilla JS. No frameworks, no build step.
 ├── script.js           # scroll reveal, cursor dot, footer year
 ├── .nojekyll           # tells GitHub Pages to serve files as-is
 └── assets/
+    ├── logo.svg        # swati logo mark (S sprouting a leaf); also the favicon
     ├── favicon.svg
     ├── og-image.png    # 1200×630 social preview
     └── Swatisoumya-Sahoo-Resume.pdf   # ← add this (see below)
@@ -30,7 +31,8 @@ Plain HTML, CSS and vanilla JS. No frameworks, no build step.
    ```
 
    Use 9:16 WebP images of about 540×960 to keep Lighthouse scores high. To make a tile clickable, wrap its contents in `<a href="https://www.instagram.com/reel/…">`.
-3. If your GitHub username isn't `swatisociohub`, update the `canonical`, `og:url`, `og:image` and `twitter:image` URLs in the `<head>` of `index.html`.
+3. **Show the logo-design section.** It's in `index.html` (`id="logos"`) but hidden until there are real logos. Put the files in `assets/logos/` (square PNG/SVG/WebP, about 400×400), copy the commented `<li class="logo-card">` once per logo, then delete the `hidden` attribute on the section.
+4. If your GitHub username isn't `swatisociohub`, update the `canonical`, `og:url`, `og:image` and `twitter:image` URLs in the `<head>` of `index.html`.
 
 ## Deploy to GitHub Pages
 

@@ -38,6 +38,8 @@
   <!-- SVG icon sprite (stroke icons) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
+      <!-- swati logo mark: an S sprouting a leaf (botanist who grows brands) -->
+      <symbol id="logo-mark" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="18" fill="#FF5FA2" transform="rotate(-6 32 32)"/><path d="M41 22.5c-2.2-3.6-6-5-10-4.4-4.6.7-7.4 4-6.6 7.6.9 4 6.4 4.8 10 6.1 3.9 1.4 5.8 4.4 4.6 8-1.3 3.8-6 5.4-10.3 4.4-2.8-.6-5-2.3-6.2-4.6" fill="none" stroke="#0A0A0F" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 22.5c1.5-6 6.5-9.6 13-9.3-.2 6.6-4.6 10.7-13 9.3z" fill="#C9F24D" stroke="#0A0A0F" stroke-width="2.4" stroke-linejoin="round"/><path d="M44 20.2l5.2-3.4" stroke="#0A0A0F" stroke-width="1.8" stroke-linecap="round"/></symbol>
       <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-9.3-9.4C1.5 7.8 3.6 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.5 3.3 4.3 6.6-1.8 4.8-9.3 9.4-9.3 9.4z"/></symbol>
       <symbol id="i-comment" viewBox="0 0 24 24"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.4 7.6L3.5 20.5l1.4-4.4A8.5 8.5 0 1 1 20.5 11.5z"/></symbol>
       <symbol id="i-share" viewBox="0 0 24 24"><path d="M21.5 3 10 14.5M21.5 3l-7 18-4.5-6.5L3.5 10z"/></symbol>
@@ -63,7 +65,7 @@
   <!-- 1. Navbar -->
   <header class="nav-wrap">
     <nav class="nav" aria-label="Main">
-      <a class="logo" href="#top" aria-label="Swati, back to top">swati<span aria-hidden="true">✶</span></a>
+      <a class="logo" href="#top" aria-label="Swati, back to top"><svg class="logo-mark" aria-hidden="true"><use href="#logo-mark"/></svg><span>swati</span></a>
       <ul class="nav-links">
         <li><a href="#journey">Journey</a></li>
         <li><a href="#work">Work</a></li>
@@ -272,6 +274,25 @@
       </ul>
     </section>
 
+    <!-- 5b. Logo design showcase.
+         Hidden until real logo files are added: put them in assets/logos/,
+         add one <li> per logo, then delete the `hidden` attribute below. -->
+    <section class="section" id="logos" hidden>
+      <div class="section-head reveal">
+        <p class="kicker">Branding</p>
+        <h2>Logo <span class="sticker sticker-lilac">design</span></h2>
+        <p class="lede">Brand marks I've designed for clients.</p>
+      </div>
+      <ul class="logos">
+        <!--
+        <li class="logo-card reveal">
+          <div class="logo-art"><img src="assets/logos/client-name.png" alt="Client Name logo" width="400" height="400" loading="lazy" decoding="async"></div>
+          <p><b>Client Name</b><span>Industry</span></p>
+        </li>
+        -->
+      </ul>
+    </section>
+
     <!-- 6. Services bento -->
     <section class="light" id="services">
       <div class="section-head reveal">
@@ -360,7 +381,7 @@
         <li><a href="https://www.linkedin.com/in/swati-soumya-6586b7175" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
         <li><a href="mailto:swatisoumyasahoo9878@gmail.com" aria-label="Email"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></a></li>
       </ul>
-      <p class="copy">© <span id="year">2026</span> Swatisoumya Sahoo</p>
+      <p class="copy"><svg class="logo-mark" aria-hidden="true"><use href="#logo-mark"/></svg>© <span id="year">2026</span> Swatisoumya Sahoo</p>
     </div>
   </footer>
 
